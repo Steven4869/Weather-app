@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,22 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/weather.css')}}">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <div class="weather-side">
             <div class="weather-gradient">
                 <div class="date-container">
-                    <h2 class="date-dayname">Thursday</h2>
-                    <span class="date-day">3 Feb 2022</span>
                     <span class="location">{{place}}</span>
                 </div>
                 <div class="weather-container">
-                    <h1 class="weather-temp">{{temp}}</h1>
+                    <h1 class="weather-temp">{{temp}} C</h1>
                     <h3 class="weather-desc">{{weather}}</h3>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <h1>Weather in {{ place }}</h1>
-    <h2>Temperature is {{ temp }}</h2>
-    <h3>{{ weather }}</h3> -->
+    </div>
 </body>
+
 </html>

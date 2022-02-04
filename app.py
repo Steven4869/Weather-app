@@ -1,6 +1,7 @@
 import requests
 import configparser
 from flask import Flask, render_template, request
+import time
 
 app = Flask(__name__)
 @app.route("/")
@@ -10,12 +11,14 @@ def home():
 def results():
     zip_code=request.form['ZipCode']
     country_code=request.form['CountryCode']
-    if(zip_code.isnumeric()):
+    if(zip_code.isnumeric() and country_code.isalpha()):
         data = get_weather(zip_code, country_code, get_api())
+        seconds = data["dt"]
+        local_time = time.ctime(seconds)
         place = data["name"]
         temp = "{0:.2f}".format(data["main"]["temp"])
         weather = data["weather"][0]["description"]
-        return render_template('results.html', place=place, temp=temp, weather=weather)
+        return render_template('results.html', place=place, temp=temp, weather=weather, local_time=local_time)
     else:
         return "Error 404"
 
